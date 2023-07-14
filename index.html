@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" type="image/x-icon" href="./public/faviconn.ico" />
-    <title>Formulario</title>
+    <title>Congreso médico</title>
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
       rel="stylesheet"
@@ -17,22 +17,23 @@
         margin: 0;
         padding: 0;
       }
-      html {
-        font-family: "Quicksand", sans-serif;
-      }
+   
 
       body {
         display: flex;
         justify-content: center;
         align-items: center;
+        background-color: #f7f7f7;
+        padding: 10px;
       }
 
       .main-container {
         max-width: 600px;
-        width: 100%;
         padding: 35px;
         border: 1px solid #ccc;
         border-radius: 10px;
+        background-color: #ffffff;
+
       }
 
       .titulo {
@@ -69,6 +70,10 @@
         max-width: 25%;
       }
 
+      .image-logo {
+        width: 100%; /* Hace que la imagen tenga un 100% de ancho y ocupe todo el ancho del div */
+      }
+
       /*** ESTILOS BOTÓN SLIDE LEFT ***/
       .ov-btn-slide-left {
         background: #ffffff; /* color de fondo */
@@ -86,7 +91,7 @@
       }
       .ov-btn-slide-left::after {
         content: "";
-        background: #000000; /* color de fondo hover */
+        background: #004284; /* color de fondo hover */
         position: absolute;
         z-index: -1;
         padding: 16px 20px;
@@ -124,10 +129,12 @@
   </head>
   <body>
     <div class="main-container">
+
+
       <div class="banner-container">
         <img
           class="image-banner"
-          src="./public/loreal_logo.png"
+          src="./public/BANNER C-A_2.jpg"
           alt="texto_alternativo"
         />
       </div>
@@ -135,81 +142,107 @@
       <div class="title-images-container">
         <div class="imagen-container">
           <img
-            class="image-banner"
-            src="./public/LRP AZUL 1200 X 1200.png"
-            alt="texto_alternativo"
+            class="image-logo"
+            src="./public/la_roche_posay_1200_1200.png"
+            alt="Logo de La Roche Posay"
           />
         </div>
 
         <div class="imagen-container">
           <img
-            class="image-banner"
-            src="./public/Vichy-Logo-Negro.png"
-            alt="texto_alternativo"
+            class="image-logo"
+            src="./public/vichy_1200_1200.png"
+            alt="Logo de Vichy"
           />
         </div>
 
         <div class="imagen-container">
           <img
-            class="image-banner"
-            src="./public/Logo-Cerave.png"
-            alt="texto_alternativo"
+            class="image-logo"
+            src="./public/Cera_ve_1200_1200.png"
+            alt="Logo de CeraVe"
           />
         </div>
+
+
+
       </div>
 
       <h2 class="subtitulo">
         Regístrate, haz parte de la comunidad médica de L'Oréal y recibe en
         primicia noticias, próximos congresos y lanzamientos de productos
       </h2>
-      <form>
+      <form action="https://cl.s7.exct.net/DEManager.aspx" method="post">
+        <input type="hidden" name="_clientID" value="[HelpDesk]" />
+        <input type="hidden" name="_deExternalKey" value="[HelpDesk]" />
+        <input type="hidden" name="_action" value="Add" />
+        <input type="hidden" name="_returnXML" value="0" />
+        <input type="hidden" name="_successURL" value="[SUCCESS.html]" />
+        <input type="hidden" name="_errorURL" value="[ERROR.html]" />
+        <input type="hidden" name="Brand" value="[HelpDesk]" />
+        <input type="hidden" name="Channel" value="Landing Page" />
+        <input type="hidden" name="subjectArea" value="Loreal" />
+        <input type="hidden" name="Campaign_name" value="[HelpDesk]" />
+        <input type="hidden" name="Source" value="Automatic" />
+        <input type="hidden" name="preferred-locale" value="[HelpDesk]" />
+        
+        <!--VALORES POR DEFECTO-->
+        <input type="hidden" name="salon-name" value="Medico" />
+        <input type="hidden" name="salon-id" value="1" />
+
+
         <div class="mb-3">
           <label for="nombre" class="form-label">Nombre</label>
-          <input type="text" class="form-control" id="nombre" required />
+          <input name="first-name" type="text" class="form-control" id="nombre" required />
         </div>
 
         <div class="mb-3">
           <label for="apellido" class="form-label">Apellidos</label>
-          <input type="text" class="form-control" id="apellido" required />
+          <input name="last-name" type="text" class="form-control" id="apellido" required />
         </div>
 
         <div class="mb-3">
           <label for="email" class="form-label">Correo Electrónico</label>
-          <input type="email" class="form-control" id="email" required />
+          <input name="email" type="email" class="form-control" id="email" required />
         </div>
+
+
 
         <div class="mb-3">
           <label for="telefono" class="form-label">Número telefónico</label>
           <div class="input-group">
-            <select class="form-select margin-small" id="countryCode" required>
+            <select name="" class="form-select margin-small" id="countryCode" required>
               <option value="">Codigo Tel.</option>
               <option value="+506">CR: +506</option>
               <option value="+503">SV: +503</option>
               <option value="+595">PY: +595</option>
             </select>
-            <input type="tel" class="form-control" id="telefono" required />
+            <input name="phone-mobile" type="tel" class="form-control" id="telefono" required />
           </div>
         </div>
 
+
+
+        
         <div class="mb-3">
           <label for="especialidad" class="form-label">Especialidad</label>
-          <select class="form-select" id="especialidad" required>
+          <select name="specialization" class="form-select" id="especialidad" required>
             <option value="">Seleccionar especialidad</option>
-            <option value="Dermatologia">Dermatología</option>
-            <option value="Pediatria">Pediatría</option>
-            <option value="Pediatria">Oncología</option>
-            <option value="Pediatria">Medicina estética</option>
-            <option value="Pediatria">Medicina general</option>
-            <option value="Pediatria">Cirugía plástica</option>
-            <option value="Pediatria">Alergología</option>
-            <option value="Pediatria">Infectología</option>
-            <option value="Pediatria">Inmunología</option>
+            <option value="Dermatología">Dermatología</option>
+            <option value="Pediatría">Pediatría</option>
+            <option value="Oncología">Oncología</option>
+            <option value="Medicina estética">Medicina estética</option>
+            <option value="Medicina general">Medicina general</option>
+            <option value="Cirugía plástica">Cirugía plástica</option>
+            <option value="Alergología">Alergología</option>
+            <option value="Infectología">Infectología</option>
+            <option value="Inmunología">Inmunología</option>
           </select>
         </div>
 
         <div class="mb-3">
           <label for="pais" class="form-label">País</label>
-          <select class="form-select" id="pais" required>
+          <select name="country-code" class="form-select" id="pais" required>
             <option value="">Seleccionar país</option>
             <option value="CR">Costa Rica</option>
             <option value="SV">El Salvador</option>
@@ -220,13 +253,13 @@
         <div class="mt-3 mb-5">
           <label for="ciudad" class="form-label">Ciudad</label>
           <div class="input-group">
-            <select class="form-select margin-small" id="ciudad" required>
+            <select name="city" class="form-select margin-small" id="ciudad" required>
               <option value="">Ciudad</option>
             </select>
             <div class="w-50">
               <input
                 type="date"
-                name="birthday"
+                name="birthdate"
                 value="2023-01-01"
                 min="1948-12-31"
                 max="2007-12-31"
