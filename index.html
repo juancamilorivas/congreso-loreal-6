@@ -17,7 +17,6 @@
         margin: 0;
         padding: 0;
       }
-   
 
       body {
         display: flex;
@@ -33,7 +32,6 @@
         border: 1px solid #ccc;
         border-radius: 10px;
         background-color: #ffffff;
-
       }
 
       .titulo {
@@ -129,8 +127,6 @@
   </head>
   <body>
     <div class="main-container">
-
-
       <div class="banner-container">
         <img
           class="image-banner"
@@ -163,9 +159,6 @@
             alt="Logo de CeraVe"
           />
         </div>
-
-
-
       </div>
 
       <h2 class="subtitulo">
@@ -185,48 +178,66 @@
         <input type="hidden" name="Campaign_name" value="[HelpDesk]" />
         <input type="hidden" name="Source" value="Automatic" />
         <input type="hidden" name="preferred-locale" value="[HelpDesk]" />
-        
+
         <!--VALORES POR DEFECTO-->
         <input type="hidden" name="salon-name" value="Medico" />
         <input type="hidden" name="salon-id" value="1" />
 
-
         <div class="mb-3">
           <label for="nombre" class="form-label">Nombre</label>
-          <input name="first-name" type="text" class="form-control" id="nombre" required />
+          <input
+            name="first-name"
+            type="text"
+            class="form-control"
+            id="nombre"
+            required
+          />
         </div>
 
         <div class="mb-3">
           <label for="apellido" class="form-label">Apellidos</label>
-          <input name="last-name" type="text" class="form-control" id="apellido" required />
+          <input
+            name="last-name"
+            type="text"
+            class="form-control"
+            id="apellido"
+            required
+          />
         </div>
 
         <div class="mb-3">
           <label for="email" class="form-label">Correo Electrónico</label>
-          <input name="email" type="email" class="form-control" id="email" required />
+          <input
+            name="email"
+            type="email"
+            class="form-control"
+            id="email"
+            required
+          />
         </div>
-
-
 
         <div class="mb-3">
           <label for="telefono" class="form-label">Número telefónico</label>
           <div class="input-group">
-            <select name="" class="form-select margin-small" id="countryCode" required>
+            <select name="select-option" class="form-select margin-small" id="countryCode" required>
               <option value="">Codigo Tel.</option>
               <option value="+506">CR: +506</option>
               <option value="+503">SV: +503</option>
               <option value="+595">PY: +595</option>
             </select>
-            <input name="phone-mobile" type="tel" class="form-control" id="telefono" required />
+            <input name="input-phone" type="tel" class="form-control" id="telefono" required />
+            <input name="phone-mobile" type="hidden" id="combinedPhoneNumber" />
           </div>
         </div>
 
-
-
-        
         <div class="mb-3">
           <label for="especialidad" class="form-label">Especialidad</label>
-          <select name="specialization" class="form-select" id="especialidad" required>
+          <select
+            name="specialization"
+            class="form-select"
+            id="especialidad"
+            required
+          >
             <option value="">Seleccionar especialidad</option>
             <option value="Dermatología">Dermatología</option>
             <option value="Pediatría">Pediatría</option>
@@ -253,7 +264,12 @@
         <div class="mt-3 mb-5">
           <label for="ciudad" class="form-label">Ciudad</label>
           <div class="input-group">
-            <select name="city" class="form-select margin-small" id="ciudad" required>
+            <select
+              name="city"
+              class="form-select margin-small"
+              id="ciudad"
+              required
+            >
               <option value="">Ciudad</option>
             </select>
             <div class="w-50">
@@ -410,6 +426,26 @@
         });
       });
     </script>
+ <script>
+  var select = document.getElementById('countryCode');
+  var input = document.getElementById('telefono');
+  var combinedInput = document.getElementById('combinedPhoneNumber');
+
+  function updateCombinedPhoneNumber() {
+    var selectedValue = select.value;
+    var inputValue = input.value;
+
+    var combinedValue = selectedValue + inputValue;
+    combinedInput.value = combinedValue;
+
+    console.log('Selected Country Code:', selectedValue);
+    console.log('Phone Number:', inputValue);
+    console.log('Combined Value:', combinedValue);
+  }
+
+  select.addEventListener('change', updateCombinedPhoneNumber);
+  input.addEventListener('input', updateCombinedPhoneNumber);
+</script>
     <script
       src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"
       integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB"
