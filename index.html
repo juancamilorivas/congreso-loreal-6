@@ -12,6 +12,20 @@
       crossorigin="anonymous"
     />
     <style>
+      @font-face {
+        font-family: "LOREAL-Essentielle-Bold.ttf";
+        src: url("./font/LOREAL-Essentielle-Bold.ttf") format("opentype");
+        /* Si la fuente es un archivo .otf, usa el siguiente formato en lugar del formato truetype:
+        src: url('ruta/del/archivo/fuente.otf') format('opentype'); */
+      }
+
+      @font-face {
+        font-family: "LOREAL-Essentielle-Regular";
+        src: url("./font/LOREAL-Essentielle-Regular.ttf") format("opentype");
+        /* Si la fuente es un archivo .otf, usa el siguiente formato en lugar del formato truetype:
+        src: url('ruta/del/archivo/fuente.otf') format('opentype'); */
+      }
+
       * {
         box-sizing: border-box;
         margin: 0;
@@ -24,6 +38,7 @@
         align-items: center;
         background-color: #f7f7f7;
         padding: 10px;
+        font-family: "LOREAL-Essentielle-Regular";
       }
 
       .main-container {
@@ -36,14 +51,8 @@
 
       .titulo {
         text-align: center;
-        font-size: 24px;
-        font-weight: bold;
-        margin-bottom: 16px;
-      }
-
-      .subtitulo {
-        text-align: center;
         font-size: 18px;
+        font-family: "LOREAL-Essentielle-Bold";
       }
       .margin-small {
         margin-right: 20px;
@@ -161,7 +170,7 @@
         </div>
       </div>
 
-      <h2 class="subtitulo">
+      <h2 class="titulo mb-4">
         Regístrate, haz parte de la comunidad médica de L'Oréal y recibe en
         primicia noticias, próximos congresos y lanzamientos de productos
       </h2>
@@ -219,13 +228,24 @@
         <div class="mb-3">
           <label for="telefono" class="form-label">Número telefónico</label>
           <div class="input-group">
-            <select name="select-option" class="form-select margin-small" id="countryCode" required>
+            <select
+              name="select-option"
+              class="form-select margin-small"
+              id="countryCode"
+              required
+            >
               <option value="">Codigo Tel.</option>
               <option value="+506">CR: +506</option>
               <option value="+503">SV: +503</option>
               <option value="+595">PY: +595</option>
             </select>
-            <input name="input-phone" type="tel" class="form-control" id="telefono" required />
+            <input
+              name="input-phone"
+              type="tel"
+              class="form-control"
+              id="telefono"
+              required
+            />
             <input name="phone-mobile" type="hidden" id="combinedPhoneNumber" />
           </div>
         </div>
@@ -426,26 +446,26 @@
         });
       });
     </script>
- <script>
-  var select = document.getElementById('countryCode');
-  var input = document.getElementById('telefono');
-  var combinedInput = document.getElementById('combinedPhoneNumber');
+    <script>
+      var select = document.getElementById("countryCode");
+      var input = document.getElementById("telefono");
+      var combinedInput = document.getElementById("combinedPhoneNumber");
 
-  function updateCombinedPhoneNumber() {
-    var selectedValue = select.value;
-    var inputValue = input.value;
+      function updateCombinedPhoneNumber() {
+        var selectedValue = select.value;
+        var inputValue = input.value;
 
-    var combinedValue = selectedValue + inputValue;
-    combinedInput.value = combinedValue;
+        var combinedValue = selectedValue + inputValue;
+        combinedInput.value = combinedValue;
 
-    console.log('Selected Country Code:', selectedValue);
-    console.log('Phone Number:', inputValue);
-    console.log('Combined Value:', combinedValue);
-  }
+        console.log("Selected Country Code:", selectedValue);
+        console.log("Phone Number:", inputValue);
+        console.log("Combined Value:", combinedValue);
+      }
 
-  select.addEventListener('change', updateCombinedPhoneNumber);
-  input.addEventListener('input', updateCombinedPhoneNumber);
-</script>
+      select.addEventListener("change", updateCombinedPhoneNumber);
+      input.addEventListener("input", updateCombinedPhoneNumber);
+    </script>
     <script
       src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"
       integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB"
